@@ -3,7 +3,9 @@ package com.ryr.hospital.controller;
 import com.ryr.hospital.service.AuthService;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {

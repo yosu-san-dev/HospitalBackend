@@ -16,7 +16,7 @@ public class JwtUtil {
     private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     // Token suresi
-    private static final long EXPIRATION_TIME = 30000;
+    private static final long EXPIRATION_TIME = 3600000;
 
     // Icinde id ve TC olan bir JWT tokeni olusturur
     public String generateToken(String userId, String role) {
