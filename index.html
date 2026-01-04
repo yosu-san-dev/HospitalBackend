@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hastane Randevu Sistemi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span>+</span> HastaneSistemi
+        </div>
+        <div class="nav-links">
+            <a href="#" onclick="showPage('booking-page')" id="nav-booking" style="display: none;">Randevu Al</a>
+            <a href="#" onclick="showPage('calendar-page')" id="nav-calendar" style="display: none;">Takvimim</a>
+            <a href="#" onclick="logout()" id="nav-logout" style="display: none;">Çıkış Yap</a>
+        </div>
+    </nav>
+
+    <section id="auth-page" class="page active">
+        <div class="auth-container">
+            <div class="auth-box">
+                <h2>Giriş Yap</h2>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>TC Kimlik No</label>
+                        <input type="text" id="login-tc" placeholder="11 haneli TC giriniz" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <input type="password" id="login-pass" placeholder="••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                    <p class="link">Şifremi Unuttum?</p>
+                </form>
+            </div>
+
+            <div class="auth-box">
+                <h2>Kayıt Ol</h2>
+                <form onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label>Ad Soyad</label>
+                        <input type="text" id="reg-name" placeholder="Örn: Ahmet Yılmaz" required>
+                    </div>
+                    <div class="form-group">
+                        <label>TC Kimlik No</label>
+                        <input type="text" id="reg-tc" placeholder="11 haneli TC giriniz" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre Oluştur</label>
+                        <input type="password" id="reg-pass" placeholder="••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Hesap Oluştur</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking-page" class="page">
+        <div class="container">
+            <h1>Yeni Randevu Al</h1>
+            <div class="booking-grid">
+                
+                <div class="booking-form">
+                    <div class="form-group">
+                        <label>1. Adım: Poliklinik Seçiniz</label>
+                        <select id="dept-select">
+                            <option value="">Yükleniyor...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>2. Adım: Doktor Seçiniz</label>
+                        <select id="doc-select">
+                            <option value="">Önce Poliklinik Seçiniz</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label>3. Adım: Tarih Seçiniz</label>
+                        <input type="date" id="date-select">
+                    </div>
+                </div>
+
+                <div class="time-slots-container">
+                    <label>4. Adım: Uygun Saatler</label>
+                    <div class="slots-grid" id="slots-grid">
+                        </div>
+                </div>
+            </div>
+            
+            <div class="action-area">
+                <button class="btn btn-primary btn-large" onclick="confirmBooking()">Randevuyu Onayla</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="calendar-page" class="page">
+        <div class="container">
+            <h1>Randevu Takvimim</h1>
+            
+            <div class="calendar-header">
+                <button onclick="changeMonth(-1)">&lt;</button>
+                <h2 id="month-year-display">Ay Yıl</h2> <button onclick="changeMonth(1)">&gt;</button>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="day-name">Paz</div>
+                <div class="day-name">Pzt</div>
+                <div class="day-name">Sal</div>
+                <div class="day-name">Çar</div>
+                <div class="day-name">Per</div>
+                <div class="day-name">Cum</div>
+                <div class="day-name">Cmt</div>
+                
+                <div id="calendar-days" class="calendar-days"></div>
+            </div>
+
+            <div class="legend">
+                <span class="dot booked"></span> Randevum
+            </div>
+
+            <div class="my-reservations-list" id="reservation-details">
+                <h3>Yaklaşan Randevular</h3>
+                <ul id="appointment-list">
+                    <li>Henüz randevu bulunmamaktadır.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

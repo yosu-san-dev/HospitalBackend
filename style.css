@@ -1,0 +1,211 @@
+:root {
+    --primary: #2563EB; /* Medical Blue */
+    --primary-hover: #1D4ED8;
+    --secondary: #10B981; /* Success Green */
+    --bg-light: #F3F4F6;
+    --text-dark: #1F2937;
+    --white: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+/* Page Management */
+.page {
+    display: none; /* Hidden by default */
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page.active {
+    display: block; /* Only active page is shown */
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Auth Page */
+.auth-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.auth-box {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 400px;
+}
+
+.auth-box h2 { margin-bottom: 1.5rem; color: var(--primary); }
+
+/* Forms */
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary { background-color: var(--primary); }
+.btn-primary:hover { background-color: var(--primary-hover); }
+.btn-secondary { background-color: var(--secondary); }
+
+/* Booking Page */
+.booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.slot {
+    padding: 10px;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+.slot.selected {
+    background-color: var(--primary);
+    color: white;
+}
+
+.slot.disabled {
+    background-color: #ddd;
+    border-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.action-area { margin-top: 2rem; text-align: right; }
+.btn-large { width: 200px; }
+
+/* Calendar Page */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.day-name {
+    background: var(--primary);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.calendar-days {
+    display: contents; /* Allows children to sit in the main grid */
+}
+
+.day {
+    height: 100px;
+    border: 1px solid #eee;
+    padding: 10px;
+    position: relative;
+}
+
+.day .badge {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: white;
+}
+
+.badge.available { background-color: var(--secondary); }
+.badge.full { background-color: #EF4444; }
+.badge.booked { background-color: var(--primary); }
+
+.legend { margin-top: 1rem; display: flex; gap: 1rem; align-items: center; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.dot.available { background: var(--secondary); }
+.dot.full { background: #EF4444; }
+.dot.booked { background: var(--primary); }
+
+.my-reservations-list {
+    margin-top: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
