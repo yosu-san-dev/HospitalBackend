@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8080";
+const API_BASE_URL = "https://hospitalbackend-dgad.onrender.com";
 
 // Helper: Checks if the JWT token is expired
 function isTokenExpired(token) {
