@@ -14,7 +14,7 @@ public class Reservation{
     private String patientId; // Kim
     private String doctorId; // Kimle
 
-    private LocalDateTime startDT; // DT bir Date(tarih) Time(zaman) kisaltmasi
+    private LocalDateTime startDT; // DT bir Date(tarih) Time(zaman) kısaltılması
     private LocalDateTime endDT;
 
     public Reservation() {}
